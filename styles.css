@@ -1,11 +1,274 @@
-body {background-color: aquamarine;}
-h1 {text-align: center; color:rgb(221, 144, 0);}
-h2 {text-align: center; color:rgb(221, 144, 0);}
-p {font-size: 24px; border: 2px solid; border-radius: 10px; padding: 10px; padding-left: 20px; padding-right: 20px; margin-left: 100px; margin-right: 100px;}
-a {text-align: center; display: block;}
-a:hover {color: red;}
-img {display: block; margin-left: auto; margin-right: auto;}
-table {display: flex; justify-content: center; border: 2px solid; border-radius: 10px; padding: 10px; padding-left: 20px; padding-right: 20px; margin-left: 500px; margin-right: 500px;}
-th {border: 2px solid; padding: 10px; padding-left: 20px; padding-right: 20px;}
-td {border: 2px solid; padding: 10px; padding-left: 20px; padding-right: 20px;}
-ol {text-align: center; list-style-position: inside; padding: 0;}
+/* General body styling */
+body {
+    background-color: rgb(240, 248, 255); /* Light blue background for better readability */
+    font-family: Arial, sans-serif; /* Clean and modern font */
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styles */
+h1 {
+    text-align: center;
+    color: rgb(34, 34, 34); /* Darker color for better contrast */
+    font-size: 36px;
+    margin-top: 20px;
+}
+
+h2 {
+    text-align: center;
+    color: rgb(34, 34, 34);
+    font-size: 28px;
+    margin-top: 20px;
+}
+
+/* Paragraph styling */
+p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: rgb(51, 51, 51);
+    border: 2px solid rgb(221, 221, 221);
+    border-radius: 10px;
+    padding: 15px;
+    margin: 20px auto;
+    width: 80%;
+    background-color: rgb(255, 255, 255); /* White background for contrast */
+}
+
+/* Anchor link styling */
+a {
+    text-align: center;
+    display: inline-block;
+    color: rgb(0, 102, 204); /* Blue links */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: rgb(255, 69, 0); /* Orange hover effect */
+}
+
+/* Image styling */
+img {
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for better appearance */
+}
+
+/* Table styling */
+table {
+    margin: 20px auto;
+    border-collapse: collapse;
+    width: 80%;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(221, 221, 221);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+th, td {
+    border: 1px solid rgb(221, 221, 221);
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+}
+
+th {
+    background-color: rgb(0, 102, 204);
+    color: white;
+}
+
+td {
+    background-color: rgb(240, 248, 255);
+}
+
+/* Ordered list styling */
+ol {
+    text-align: center;
+    list-style-position: inside;
+    padding: 0;
+    margin: 20px auto;
+    width: 80%;
+}
+
+ol li {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+/* Menu bar styles */
+.menu-bar {
+    background-color: rgb(0, 102, 204);
+    overflow: hidden;
+    text-align: center;
+    padding: 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+}
+
+.menu-bar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.menu-bar li {
+    margin: 0 15px;
+}
+
+.menu-bar a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu-bar a:hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 102, 204);
+}
+
+/* Quiz form styling */
+form {
+    margin: 20px auto;
+    width: 80%;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(221, 221, 221);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+form h3 {
+    color: rgb(34, 34, 34);
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+form button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: white;
+    background-color: rgb(0, 102, 204);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: rgb(255, 69, 0);
+}
+
+/* Results section styling */
+#results {
+    margin: 20px auto;
+    width: 80%;
+    padding: 20px;
+    background-color: rgb(255, 255, 255); /* White background for contrast */
+    border: 2px solid rgb(221, 221, 221); /* Light border for structure */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    text-align: center; /* Center-align content */
+    font-family: Arial, sans-serif; /* Consistent font */
+    color: rgb(34, 34, 34); /* Dark text for readability */
+}
+
+#results h2 {
+    font-size: 24px;
+    color: rgb(0, 102, 204); /* Blue color for the heading */
+    margin-bottom: 15px;
+}
+
+#results .score-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center-align the score and result */
+    margin: 20px 0;
+}
+
+#results .score-container p {
+    font-size: 18px;
+    margin: 10px 0;
+    line-height: 1.6; /* Improve readability */
+}
+
+#results p.pass {
+    color: rgb(0, 128, 0); /* Green for pass */
+    font-weight: bold;
+}
+
+#results p.fail {
+    color: rgb(255, 0, 0); /* Red for fail */
+    font-weight: bold;
+}
+
+#results ul {
+    list-style-type: none; /* Remove default bullet points */
+    padding: 0;
+    margin: 15px 0;
+}
+
+#results ul li {
+    font-size: 16px;
+    margin: 5px 0;
+    line-height: 1.5;
+    text-align: center; /* Center-align answers */
+}
+
+#results button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-size: 18px;
+    color: white;
+    background-color: rgb(0, 102, 204);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#results button:hover {
+    background-color: rgb(255, 69, 0); /* Orange hover effect */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Navigation buttons styling */
+.navigation-buttons {
+    text-align: center; /* Center the buttons */
+    margin: 20px 0; /* Add spacing above and below */
+}
+
+.navigation-buttons .button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 0 10px; /* Add spacing between buttons */
+    font-size: 18px;
+    color: white;
+    background-color: rgb(0, 102, 204);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.navigation-buttons .button:hover {
+    background-color: rgb(255, 69, 0);
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}

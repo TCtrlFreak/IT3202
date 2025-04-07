@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <!--Selects style sheet for CSS styling, sets the favicon, and the page title-->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <title>WWW History | Quiz</title>
+    
+    <!--Javascript code to check answers-->
+    <script>
+        function calculateScore() {
+            let score = 0;
+            let totalQuestions = 5;
+
+            // Question 1: Single correct choice
+            if (document.querySelector('input[name="q1"]:checked')?.value === "b") {
+                score++;
+            }
+
+            // Question 2: Single correct choice
+            if (document.querySelector('input[name="q2"]:checked')?.value === "c") {
+                score++;
+            }
+
+            // Question 3: Single correct choice
+            if (document.querySelector('input[name="q3"]:checked')?.value === "a") {
+                score++;
+            }
+
+            // Question 4: Fill-in-the-blank
+            const answer4 = document.getElementById("q4").value.trim().toLowerCase();
+            if (answer4 === "html") {
+                score++;
+            }
+
+            // Question 5: Multiple correct choices
+            const q5Answers = document.querySelectorAll('input[name="q5"]:checked');
+            const correctAnswers = ["a", "c"];
+            const selectedAnswers = Array.from(q5Answers).map(input => input.value);
+            if (selectedAnswers.length === correctAnswers.length &&
+                selectedAnswers.every(answer => correctAnswers.includes(answer))) {
+                score++;
+            }
+
+            // Display results
+            const resultDiv = document.getElementById("results");
+            const passFail = score >= 3 ? "Pass" : "Fail";
+            const passFailClass = score >= 3 ? "pass" : "fail";
+            resultDiv.innerHTML = `
+                <h2>Quiz Results</h2>
+                <p>Total Score: ${score}/${totalQuestions}</p>
+                <p class="${passFailClass}">Result: <strong>${passFail}</strong></p>
+                <h3>Answers:</h3>
+                <ul>
+                    <li>Question 1: Correct Answer is B</li>
+                    <li>Question 2: Correct Answer is C</li>
+                    <li>Question 3: Correct Answer is A</li>
+                    <li>Question 4: Correct Answer is "HTML"</li>
+                    <li>Question 5: Correct Answers are A and C</li>
+                </ul>
+                <button onclick="restartQuiz()">Restart Quiz</button>
+            `;
+        }
+
+        function restartQuiz() {
+            document.getElementById("quiz-form").reset();
+            document.getElementById("results").innerHTML = "";
+        }
+    </script>
+</head>
+
+<body>
+    <!-- Navigation menu bar -->
+    <nav class="menu-bar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="topic1.html">The Beginning</a></li>
+            <li><a href="topic2.html">Further Developments</a></li>
+            <li><a href="references.html">References</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+        </ul>
+    </nav>
+
+    <!--Header with image-->
+    <h1>Quiz: History of the World Wide Web</h1>
+    <img src="quiz.jpg" alt="Quiz Image" width="500" height="300" style="display: block; margin: 20px auto;">
+
+    <!--Quiz questions-->
+    <form id="quiz-form">
+        <!-- Question 1 -->
+        <h3>1. Who invented the World Wide Web?</h3>
+        <label><input type="radio" name="q1" value="a"> Steve Jobs</label><br>
+        <label><input type="radio" name="q1" value="b"> Tim Berners-Lee</label><br>
+        <label><input type="radio" name="q1" value="c"> Bill Gates</label><br>
+        <label><input type="radio" name="q1" value="d"> Thomas Edison</label><br>
+        <hr>
+
+        <!-- Question 2 -->
+        <h3>2. What does HTTP stand for?</h3>
+        <label><input type="radio" name="q2" value="a"> HyperTransfer Text Protocol</label><br>
+        <label><input type="radio" name="q2" value="b"> HyperText Transmission Protocol</label><br>
+        <label><input type="radio" name="q2" value="c"> HyperText Transfer Protocol</label><br>
+        <label><input type="radio" name="q2" value="d"> HyperText Transfer Practice</label><br>
+        <hr>
+
+        <!-- Question 3 -->
+        <h3>3. What year was the World Wide Web introduced to the public?</h3>
+        <label><input type="radio" name="q3" value="a"> 1991</label><br>
+        <label><input type="radio" name="q3" value="b"> 1989</label><br>
+        <label><input type="radio" name="q3" value="c"> 1995</label><br>
+        <label><input type="radio" name="q3" value="d"> 1998</label><br>
+        <hr>
+
+        <!-- Question 4 -->
+        <h3>4. Fill in the blank: The primary language used to create web pages is ______.</h3>
+        <input type="text" id="q4" placeholder="Your answer here">
+        <hr>
+
+        <!-- Question 5 -->
+        <h3>5. Which of the following are web technologies? (Select all that apply)</h3>
+        <label><input type="checkbox" name="q5" value="a"> HTML</label><br>
+        <label><input type="checkbox" name="q5" value="b"> Python</label><br>
+        <label><input type="checkbox" name="q5" value="c"> CSS</label><br>
+        <label><input type="checkbox" name="q5" value="d"> Java</label><br>
+        <hr>
+
+        <!--Submit Button-->
+        <button type="button" onclick="calculateScore()" style="margin-top: 20px;">Submit Quiz</button>
+    </form>
+
+    <div id="results"></div>
+
+    <!-- Navigation buttons -->
+    <div class="navigation-buttons">
+        <a href="references.html" class="button">Back</a>
+        <a href="index.html" class="button">Home</a>
+    </div>
+</body>
+
+</html>
