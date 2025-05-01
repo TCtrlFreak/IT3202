@@ -116,7 +116,6 @@ ol li {
     justify-content: center; /* Horizontally center items */
     padding: 10px 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
-    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .menu-bar ul {
