@@ -7,12 +7,14 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <title>WWW History | Quiz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     
     <!--Javascript code to check answers-->
     <script>
         function calculateScore() {
             let score = 0;
-            let totalQuestions = 5;
+            let totalQuestions = 6; // Updated total number of questions
 
             // Question 1: Single correct choice
             if (document.querySelector('input[name="q1"]:checked')?.value === "b") {
@@ -44,6 +46,11 @@
                 score++;
             }
 
+            // Question 6: True/False
+            if (document.querySelector('input[name="q6"]:checked')?.value === "true") {
+                score++;
+            }
+
             // Display results
             const resultDiv = document.getElementById("results");
             const passFail = score >= 3 ? "Pass" : "Fail";
@@ -59,6 +66,7 @@
                     <li>Question 3: Correct Answer is A</li>
                     <li>Question 4: Correct Answer is "HTML"</li>
                     <li>Question 5: Correct Answers are A and C</li>
+                    <li>Question 6: Correct Answer is True</li>
                 </ul>
                 <button onclick="restartQuiz()">Restart Quiz</button>
             `;
@@ -71,72 +79,96 @@
     </script>
 </head>
 
+
 <body>
-    <!-- Navigation menu bar -->
-    <nav class="menu-bar">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="topic1.html">The Beginning</a></li>
-            <li><a href="topic2.html">Further Developments</a></li>
-            <li><a href="references.html">References</a></li>
-            <li><a href="quiz.html">Quiz</a></li>
-        </ul>
-    </nav>
+    <div class="grid-container">
 
-    <!--Header with image-->
-    <h1>Quiz: History of the World Wide Web</h1>
-    <img src="quiz.jpg" alt="Quiz Image" width="500" height="300" style="display: block; margin: 20px auto;">
+        <div class="item1">
+            <!-- Navigation menu bar -->
+            <nav class="menu-bar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="topic1.html">The Beginning</a></li>
+                    <li><a href="topic2.html">Further Developments</a></li>
+                    <li><a href="topic3.html">The Future</a></li>
+                    <li><a href="references.html">References</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                </ul>
+            </nav>
+        </div>
+      
+        <div class="item2">
+            <!--Header with image-->
+            <h1>Quiz: History of the World Wide Web</h1>
+            <img src="quiz.jpg" alt="Quiz Image" width="500" height="300" style="display: block; margin: 20px auto;">
+        </div>
+      
+        <div class="item3">
+            <!--Quiz questions-->
+            <form id="quiz-form">
+                <!-- Question 1 -->
+                <h3>1. Who invented the World Wide Web?</h3>
+                <label><input type="radio" name="q1" value="a"> Steve Jobs</label><br>
+                <label><input type="radio" name="q1" value="b"> Tim Berners-Lee</label><br>
+                <label><input type="radio" name="q1" value="c"> Bill Gates</label><br>
+                <label><input type="radio" name="q1" value="d"> Thomas Edison</label><br>
+                <hr>
 
-    <!--Quiz questions-->
-    <form id="quiz-form">
-        <!-- Question 1 -->
-        <h3>1. Who invented the World Wide Web?</h3>
-        <label><input type="radio" name="q1" value="a"> Steve Jobs</label><br>
-        <label><input type="radio" name="q1" value="b"> Tim Berners-Lee</label><br>
-        <label><input type="radio" name="q1" value="c"> Bill Gates</label><br>
-        <label><input type="radio" name="q1" value="d"> Thomas Edison</label><br>
-        <hr>
+                <!-- Question 2 -->
+                <h3>2. What does HTTP stand for?</h3>
+                <label><input type="radio" name="q2" value="a"> HyperTransfer Text Protocol</label><br>
+                <label><input type="radio" name="q2" value="b"> HyperText Transmission Protocol</label><br>
+                <label><input type="radio" name="q2" value="c"> HyperText Transfer Protocol</label><br>
+                <label><input type="radio" name="q2" value="d"> HyperText Transfer Practice</label><br>
+                <hr>
 
-        <!-- Question 2 -->
-        <h3>2. What does HTTP stand for?</h3>
-        <label><input type="radio" name="q2" value="a"> HyperTransfer Text Protocol</label><br>
-        <label><input type="radio" name="q2" value="b"> HyperText Transmission Protocol</label><br>
-        <label><input type="radio" name="q2" value="c"> HyperText Transfer Protocol</label><br>
-        <label><input type="radio" name="q2" value="d"> HyperText Transfer Practice</label><br>
-        <hr>
+                <!-- Question 3 -->
+                <h3>3. What year was the World Wide Web introduced to the public?</h3>
+                <label><input type="radio" name="q3" value="a"> 1991</label><br>
+                <label><input type="radio" name="q3" value="b"> 1989</label><br>
+                <label><input type="radio" name="q3" value="c"> 1995</label><br>
+                <label><input type="radio" name="q3" value="d"> 1998</label><br>
+                <hr>
 
-        <!-- Question 3 -->
-        <h3>3. What year was the World Wide Web introduced to the public?</h3>
-        <label><input type="radio" name="q3" value="a"> 1991</label><br>
-        <label><input type="radio" name="q3" value="b"> 1989</label><br>
-        <label><input type="radio" name="q3" value="c"> 1995</label><br>
-        <label><input type="radio" name="q3" value="d"> 1998</label><br>
-        <hr>
+                <!-- Question 4 -->
+                <h3>4. Fill in the blank: The primary language used to create web pages is ______.</h3>
+                <input type="text" id="q4" placeholder="Your answer here">
+                <hr>
 
-        <!-- Question 4 -->
-        <h3>4. Fill in the blank: The primary language used to create web pages is ______.</h3>
-        <input type="text" id="q4" placeholder="Your answer here">
-        <hr>
+                <!-- Question 5 -->
+                <h3>5. Which of the following are web technologies? (Select all that apply)</h3>
+                <label><input type="checkbox" name="q5" value="a"> HTML</label><br>
+                <label><input type="checkbox" name="q5" value="b"> Python</label><br>
+                <label><input type="checkbox" name="q5" value="c"> CSS</label><br>
+                <label><input type="checkbox" name="q5" value="d"> Java</label><br>
+                <hr>
 
-        <!-- Question 5 -->
-        <h3>5. Which of the following are web technologies? (Select all that apply)</h3>
-        <label><input type="checkbox" name="q5" value="a"> HTML</label><br>
-        <label><input type="checkbox" name="q5" value="b"> Python</label><br>
-        <label><input type="checkbox" name="q5" value="c"> CSS</label><br>
-        <label><input type="checkbox" name="q5" value="d"> Java</label><br>
-        <hr>
+                <!-- Question 6 -->
+                <h3>6. True or False: The future of the web is "Web 3.0".</h3>
+                <label><input type="radio" name="q6" value="true"> True</label><br>
+                <label><input type="radio" name="q6" value="false"> False</label><br>
+                <hr>
 
-        <!--Submit Button-->
-        <button type="button" onclick="calculateScore()" style="margin-top: 20px;">Submit Quiz</button>
-    </form>
-
-    <div id="results"></div>
-
-    <!-- Navigation buttons -->
-    <div class="navigation-buttons">
-        <a href="references.html" class="button">Back</a>
-        <a href="index.html" class="button">Home</a>
-    </div>
+                <!--Submit Button-->
+                <button type="button" onclick="calculateScore()" style="margin-top: 20px;">Submit Quiz</button>
+            </form>
+      </div>
+      
+        <div class="item4">
+            <div id="results"></div>
+        </div>
+      
+        <div class="item5">
+            <!-- Navigation buttons -->
+            <div class="navigation-buttons">
+                <a href="references.html" class="button">Back</a>
+                <a href="index.html" class="button">Home</a>
+            </div>
+        </div>
+      
+      </div>
+      
 </body>
+
 
 </html>
