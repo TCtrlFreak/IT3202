@@ -111,10 +111,12 @@ ol li {
 /* Menu bar styles */
 .menu-bar {
     background-color: rgb(0, 102, 204);
-    overflow: hidden;
-    text-align: center;
+    display: flex; /* Use Flexbox for alignment */
+    align-items: center; /* Vertically center items */
+    justify-content: center; /* Horizontally center items */
     padding: 10px 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .menu-bar ul {
@@ -122,18 +124,20 @@ ol li {
     margin: 0;
     padding: 0;
     display: flex;
-    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
-    justify-content: center;
+    flex-wrap: wrap; /* Allow wrapping to the next line */
+    justify-content: center; /* Center items on each line */
+    align-items: center; /* Ensure vertical centering of items */
 }
 
 .menu-bar li {
     margin: 5px 10px; /* Add spacing between buttons */
+    white-space: nowrap; /* Prevent text wrapping inside buttons */
 }
 
 .menu-bar a {
     text-decoration: none;
     color: white;
-    font-size: 18px;
+    font-size: 16px; /* Adjust font size for smaller screens */
     font-weight: bold;
     padding: 5px 10px;
     border-radius: 5px;
@@ -288,19 +292,17 @@ form button:hover {
 /* Responsive navigation bar for small screens (max-width: 600px) */
 @media only screen and (max-width: 600px) {
     .menu-bar ul {
-        flex-direction: row; 
-        flex-wrap: nowrap; 
-        justify-content: space-between; 
-        padding: 0 5px; 
+        flex-wrap: wrap; /* Allow wrapping for small screens */
+        justify-content: center; /* Center items on each line */
     }
 
     .menu-bar li {
-        margin: 0 2px; 
+        margin: 5px; /* Adjust spacing for smaller screens */
     }
 
     .menu-bar a {
-        font-size: 12px; 
-        padding: 4px 8px; 
+        font-size: 14px; /* Reduce font size for smaller screens */
+        padding: 4px 8px; /* Adjust padding for better fit */
     }
 
     body {
